@@ -1,0 +1,35 @@
+{
+  "name": "<%=project%>",
+  "private": true,
+  "version": "0.0.0",
+  "description": "<%=description%>",
+  "license": "<%=license%>",
+  "repository": "https://github.com/<%=username%>/<%=project%>",
+  "author": {
+    >> if(authorName) {
+    "name": "<%=authorName%>",
+    >> }
+    >> if(authorEmail) {
+    "email": "<%=authorEmail%>",
+    >> }
+    >> if(authorUrl) {
+    "url": "<%=authorUrl%>"
+    >> }
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "lint": "standard \"test/**/*.js\"",
+    "test": "truffle test",
+    "watch": "chokidar \"test/**/*.js\" -c \"npm run lint ; npm run test\" & chokidar \"contracts/**/*.sol\" -c \"npm run test\""
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "promise.waterfall": "^3.1.4",
+    "ramda": "^0.21.0",
+    "standard": "^7.0.1",
+    "truffle": "^1.0.3"
+  },
+  "dependencies": {}
+}
